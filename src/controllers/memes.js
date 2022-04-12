@@ -1,4 +1,6 @@
+import React from 'react';
 import pool from '../db/pg.js';
+
 
 export const getAllMemes = async (req, res) => {
   try {
@@ -7,7 +9,7 @@ export const getAllMemes = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-};
+}
 
 export const createMeme = async (req, res) => {
     try {
@@ -28,6 +30,7 @@ export const createMeme = async (req, res) => {
       res.status(500).json({ error: error.message });
     }
   };
+
 
   export const getSingleMeme = async (req, res) => {
     try {
@@ -86,6 +89,6 @@ export const updateMeme = async (req, res) => {
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
-      x;
+      ;
     }
   };

@@ -1,16 +1,12 @@
 import express  from "express";
-import memesRouter from "./routes/memesRouter.js";
+import memesRouter from "./src/routes/memesRouter.js";
+import cors from "cors";
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
+app.use(cors({origin: "*"}));
 app.use(express.json());
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001');
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers');
-    next();
-  });
 app.use('/memes', memesRouter);
 app.get('/', (req,res) => {
     res.send('Memes API')
